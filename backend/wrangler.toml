@@ -6,6 +6,7 @@ compatibility_date = "2025-01-05"
 
 # [vars]
 # MY_VAR = "my-variable"
+# DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiM2MzNjNiMmQtNGE5ZS00YzVkLWI1ZjktNjI2NjZlOWI4OWViIiwidGVuYW50X2lkIjoiOWRlMWY0NjYyZWJmZGI5ZWM4MWRlYTdmMzkwYTZkNzYxYzJiNjlkYzk2MTA4OWM3OWJmMDc0YTlmYjFiN2I1MSIsImludGVybmFsX3NlY3JldCI6IjZlMDJkMzJlLWM5YzEtNDVmZC1iMzQxLTc3MjEyOTM0NDRmMSJ9.Q1drWM1HeVs3bI14SmVetAJj1F5xQ6-gfMZeoMrqIjQ"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
