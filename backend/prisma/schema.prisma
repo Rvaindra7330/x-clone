@@ -22,6 +22,7 @@ model Muggle{
 model Blog{
   id String @id@default(uuid())
   content String
+  likeCount String
   author Muggle @relation(fields: [authorId],references: [id])
   authorId String
 }
