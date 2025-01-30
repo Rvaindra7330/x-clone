@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { sign, verify } from "hono/jwt";
@@ -41,7 +41,7 @@ post.post('/', async (c) => {
     const content= await prisma.blog.create({
         data:{
             content:body.content,
-            authorId:userId,
+            authorId:Number(userId),
             likeCount:"0"
         }
     })
@@ -56,8 +56,10 @@ post.get('/bulk', async(c) => {
 
     const allPosts=await prisma.blog.findMany({
         select:{
+            id:true,
             content:true,
-            id:true
+            likeCount:true
+            
         }
     })
     return c.json({allPosts}) 
@@ -68,9 +70,9 @@ post.get('/:id', async (c) => {
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate());
     const id=c.req.param("id")
-    const post=prisma.blog.findUnique({
+    const post= await prisma.blog.findFirst({
         where:{
-            id:id
+            id:Number(id)
         },
         select:{
             id:true,
