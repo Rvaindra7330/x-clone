@@ -18,7 +18,7 @@ export const Signup = () => {
                 Join today.
             </div>
             <div className='mt-10 text-xl font-semibold font-sans'>
-                already have an account?<Link to={'/signin'}> signin</Link>
+                Already have an account?<Link to={'/signin'}> signin</Link>
             </div>
             <div className='pt-3'>
             <label  className="block mb-2 text-sm font-medium text-white-900 dark:text-white">Username</label>
