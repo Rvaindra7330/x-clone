@@ -1,3 +1,4 @@
+import tyler from '../assets/tyler.jpg'
 interface Postdetails{
     name:string;
     id:string,
@@ -17,7 +18,7 @@ export const Viewpost=({name,id,time,title,image,lCount,rtCount,cmtCount,fillCol
     return <div>
         <div className="grid grid-cols-12 p-3 ">
             <div className="col-span-1 pt-1">
-                <img className="rounded-full h-10 w-10" src="/tyler.jpg" />
+                <img className="rounded-full h-10 w-10" src={tyler}/>
             </div>
             
             <div className="col-span-11 text-base text-white">

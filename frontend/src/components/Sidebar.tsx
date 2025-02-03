@@ -1,10 +1,10 @@
 import { Button } from "./Button"
-
-
+import tyler from '../assets/tyler.jpg'
+import logo from '../assets/logo.jpg'
 export const SideBar=()=>{
 return <div className="pl-10 pt-2">
     <div>
-       <img  className="w-20 h-20 rounded-full p-4" src="/xlogo.jpg"  />
+       <img  className="w-20 h-20 rounded-full p-4" src={logo}  />
 
     </div>
     <div>
@@ -68,7 +68,7 @@ return <div className="pl-10 pt-2">
     </div>
     <div>
         <button className="flex justify-between pt-10">
-             <img className="rounded-full h-12 w-12 " src="/tyler.jpg" />
+             <img className="rounded-full h-12 w-12 " src={tyler} />
              <span className="text-lg text-white pl-2">Tyler Durden
                 <div className="text-base text-gray-500">@tylordurden</div>
              </span>
