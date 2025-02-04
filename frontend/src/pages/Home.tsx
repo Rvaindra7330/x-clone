@@ -1,6 +1,6 @@
 import { SearchBar } from "../components/Searchbar"
 import { SideBar } from "../components/Sidebar"
-import { Posts } from "./Posts"
+import { Posts } from "../components/Posts"
 
 export const Home=()=>{
     return  <div className="grid grid-cols-12 bg-black divide-x divide-slate-800">

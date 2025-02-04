@@ -6,7 +6,7 @@ import './App.css'
 import { Signup } from './pages/Signup'
 import { Signin } from './pages/Signin'
 import { Post } from './pages/Post'
-import { Posts } from './pages/Posts'
+import { Posts } from './components/Posts'
 import { Home } from './pages/Home'
 
 function App() {

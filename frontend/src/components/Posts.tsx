@@ -1,5 +1,5 @@
-import { Viewpost } from "../components/Viewpost"
-import { Post } from "./Post"
+import { Viewpost } from "./Viewpost"
+import { Post } from "../pages/Post"
 import fc1 from '../assets/fc1.jpg'
 import fc2 from '../assets/fc2.jpg'
 import fc3 from '../assets/fc3.jpg'
@@ -85,8 +85,8 @@ export const Posts=()=>{
     return <div className="divide-y divide-slate-700 ">
        {
         posts.map(post=> <div>
-            <Viewpost name={post.name} id={post.id} time={post.time} title={post.content} rtCount={post.rtCount}
-            cmtCount={post.cmtCount} lCount={post.lkCount} image={post.image} fillColor={""} handleLikeCount={""}></Viewpost>
+            <Viewpost name={post.name} id={post.id} title={post.content} 
+             likeCount={post.lkCount} ></Viewpost>
             
             </div>)
        }
