@@ -4,6 +4,7 @@ import { Hono } from 'hono'
 import { sign } from 'hono/jwt';
 import { user } from './routes/user';
 import { post } from './routes/post';
+import { cors } from 'hono/cors';
 
 const app = new Hono<{
   Bindings:{
@@ -12,6 +13,10 @@ const app = new Hono<{
   }
 }>();
 
+app.use('/*', cors({
+  origin:'*',
+  allowMethods:['GET','POST','PUT','DELETE']
+}))
 app.route('api/v1/user',user)
 app.route('api/v1/post',post)
 
