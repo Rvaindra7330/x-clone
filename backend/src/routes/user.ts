@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
+import { signupInput } from "@rdevs/medium-common";
 import { Hono } from "hono";
 import { sign } from "hono/jwt";
 
@@ -18,6 +19,13 @@ user.post('/signup', async(c) => {
     }).$extends(withAccelerate());
 
   const body= await c.req.json();
+  const {success}=signupInput.safeParse(body)
+  if(!success){
+    c.status(411)
+    return c.json({
+      message:"inputs are incorrect"
+    })
+  }
 
   try{
     const user= await prisma.muggle.create({
@@ -40,7 +48,13 @@ user.post('/signin', async(c) => {
     }).$extends(withAccelerate());
 
   const body= await c.req.json();
-
+  const {success}=signupInput.safeParse(body)
+  if(!success){
+    c.status(411)
+    return c.json({
+      message:"inputs are incorrect"
+    })
+  }
   try{
     const user= await prisma.muggle.findUnique({
       where:{
