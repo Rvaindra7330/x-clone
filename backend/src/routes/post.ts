@@ -58,7 +58,7 @@ post.get('/bulk', async(c) => {
         select:{
             id:true,
             content:true,
-            likeCount:true
+            likeCount:true,
             author:{
                 select:{
                     name:true
