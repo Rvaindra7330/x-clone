@@ -44,11 +44,12 @@ user.post('/signin', async(c) => {
   try{
     const user= await prisma.muggle.findUnique({
       where:{
-        email:body.email
-       
+        email:body.email,
+        password:body.password
       }
     })
     if(!user){
+      c.status(404)
       return c.json({error:"user not found"})
     }
     const jwt=await sign({id:user.id},c.env.JWT_SECRET);

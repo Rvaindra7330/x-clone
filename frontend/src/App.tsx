@@ -8,6 +8,7 @@ import { Signin } from './pages/Signin'
 import { Post } from './pages/Post'
 import { Posts } from './components/Posts'
 import { Home } from './pages/Home'
+import { Errorhandle } from './pages/Errorhandle'
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
       <Route path='/signin' element={<Signin/>}></Route>
       <Route path='/home' element={<Home/>}></Route>
       <Route path='/post' element={<Post/>}></Route>
+      <Route path='/error' element={<Errorhandle/>}></Route>
     </Routes>
     
     </BrowserRouter>
