@@ -30,7 +30,7 @@ user.post('/signup', async(c) => {
     return c.json({jwt})
   } catch(e){
     c.status(403)
-    return c.json({message:"error while signing up"})
+    return c.json({error:"user exists"})
   }
 })
 

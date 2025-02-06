@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import logo from '../assets/logo.jpg'
 import { useState } from "react"
 import { SignupInput } from "@rdevs/medium-common"
-import axios from "axios"
+import axios, { HttpStatusCode } from "axios"
 import { BACKEND_URL } from "../pages/config"
 
 
@@ -28,8 +28,11 @@ export const Auth=({type}:{type:"signup"|"signin"})=>{
          const jwt= await response.data
          localStorage.setItem("token",JSON.stringify(jwt))
     }
-    catch(e){
-        navigate('/error')
+    catch(e:any){
+        console.log(e.status)
+        navigate('/error',{state:{
+            HttpStatusCode:e.status
+        }})
     }
     finally{
         setIsLoading(false)
