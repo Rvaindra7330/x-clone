@@ -30,6 +30,7 @@ user.post('/signup', async(c) => {
   try{
     const user= await prisma.muggle.create({
       data:{
+        name:body.name,
         email:body.email,
         password:body.password
       }

@@ -61,6 +61,7 @@ post.get('/bulk', async(c) => {
             likeCount:true,
             author:{
                 select:{
+                    id:true,
                     name:true
                 }
             }
@@ -84,6 +85,7 @@ post.get('/:id', async (c) => {
             likeCount:true,
             author:{
                 select:{
+                    id:true,
                     name:true
                 }
             }

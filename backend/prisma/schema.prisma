@@ -15,7 +15,7 @@ datasource db {
 
 model Muggle{
   id Int @id @default(autoincrement())
-  name String?
+  name String
   email String @unique
   password String 
   blogs Blog[]
