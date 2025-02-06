@@ -59,7 +59,11 @@ post.get('/bulk', async(c) => {
             id:true,
             content:true,
             likeCount:true
-            
+            author:{
+                select:{
+                    name:true
+                }
+            }
         }
     })
     return c.json({allPosts}) 
@@ -77,7 +81,12 @@ post.get('/:id', async (c) => {
         select:{
             id:true,
             content:true,
-            likeCount:true
+            likeCount:true,
+            author:{
+                select:{
+                    name:true
+                }
+            }
         }
     })
     return c.json({post})
