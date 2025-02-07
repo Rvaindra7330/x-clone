@@ -36,7 +36,9 @@ user.post('/signup', async(c) => {
       }
     })
     const jwt=await sign({id:user.id},c.env.JWT_SECRET);
-    return c.json({jwt})
+    return c.json({jwt,
+      name:user.name
+    })
   } catch(e){
     c.status(403)
     return c.json({error:"user exists"})
@@ -68,7 +70,7 @@ user.post('/signin', async(c) => {
       return c.json({error:"user not found"})
     }
     const jwt=await sign({id:user.id},c.env.JWT_SECRET);
-    return c.json({jwt})
+    return c.json({jwt,name:user.name})
   } catch(e){
     c.status(403)
     return c.json({message:"error while signing in"})
