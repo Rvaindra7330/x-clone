@@ -2,7 +2,11 @@ import { Button } from "./Button"
 import tyler from '../assets/tyler.jpg'
 import logo from '../assets/logo.jpg'
 import { Home, Search,Bell, Mail,UsersRound,UserRound,CircleEllipsis } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Create } from "../pages/Create";
 export const SideBar=()=>{
+    const [isOpen, setIsOpen] = useState(false);
 return <div className="pl-10 pt-2 bg-black">
     <div>
        <img  className="w-20 h-20 rounded-full p-4" src={logo}  />
@@ -51,13 +55,15 @@ return <div className="pl-10 pt-2 bg-black">
         </Button>
     </div>
     <div>
-        <button className="flex justify-center  px-20 py-3 w-60 h-15 rounded-full bg-blue-400 text-white text-xl">Post</button>
+    <button  onClick={() => setIsOpen(true)}className="flex justify-center   px-20 py-3 w-60 h-15 rounded-full bg-blue-400 hover:bg-sky-700 text-white text-xl"
+        >Post</button>
+       <Create isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
     <div>
         <button className="flex justify-between pt-10">
              <img className="rounded-full h-12 w-12 " src={tyler} />
-             <span className="text-lg text-white pl-2">Tyler Durden
-                <div className="text-base text-gray-500">@tylerdurden</div>
+             <span className="text-lg text-white pl-2">{localStorage.getItem("username")}
+                <div className="text-base text-gray-500">@{localStorage.getItem("username")?.split(" ").join("").toLowerCase()}</div>
              </span>
         </button>
     </div>

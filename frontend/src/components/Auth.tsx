@@ -9,6 +9,7 @@ import { BACKEND_URL } from "../pages/config"
 export const Auth=({type}:{type:"signup"|"signin"})=>{
     
     const [postInputs,SetPostInputs]=useState<SignupInput>({
+        name:"",
         email:"",
         password:""
     })
@@ -25,8 +26,11 @@ export const Auth=({type}:{type:"signup"|"signin"})=>{
             }
          );
          
-         const jwt= await response.data
-         localStorage.setItem("token",JSON.stringify(jwt))
+         const userInfo= await response.data
+         console.log(response.data)
+         localStorage.setItem("token",JSON.stringify(userInfo.jwt))
+         localStorage.setItem("username",userInfo.name)
+         navigate('/home')
     }
     catch(e:any){
         console.log(e.status)
@@ -62,6 +66,16 @@ export const Auth=({type}:{type:"signup"|"signin"})=>{
             <Link to={type==='signup'?"/signin":"/signup"} className="pl-2 text-gray-500 underline">{type==='signin'?"Signup":"Signin"}</Link>
 
           </div>
+          {type==="signup"?<div className='pt-3'>
+        <label  className="block mb-2 text-sm font-medium text-white-900 dark:text-white">Name</label>
+        <input type="text"onChange={(e)=>{
+            SetPostInputs(c=>({
+                ...c,
+                name:e.target.value
+            }))
+        }}  className="focus:outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name" required />
+    
+        </div>:null}
         <div className='pt-3'>
         <label  className="block mb-2 text-sm font-medium text-white-900 dark:text-white">Username</label>
         <input type="text"onChange={(e)=>{
