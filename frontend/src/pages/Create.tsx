@@ -1,7 +1,7 @@
 export const Create=({ isOpen, setIsOpen }:any)=>{
     if (!isOpen) return null;
     return <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-    <div className="relative p-6 w-full max-w-2xl bg-gray-900 rounded-lg shadow-lg">
+    <div className="relative p-6 w-full max-w-2xl bg-gray-900  shadow-lg">
       
       {/* Header */}
       <div className="flex items-center justify-between  pb-2">

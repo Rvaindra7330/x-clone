@@ -17,7 +17,7 @@ export const Viewpost=({name,id,title,likeCount}:Postdetails)=>{
     }
     return <Link to={`/post/${id}`}>
      <div>
-        <div className="grid grid-cols-12 p-3 h-screen ">
+        <div className="grid grid-cols-12 p-3  ">
             <div className="col-span-1 pt-1">
                 <img className="rounded-full h-10 w-10" src={tyler}/>
             </div>

@@ -1,6 +1,6 @@
 import {Search} from 'lucide-react'
 export const SearchBar=()=>{
-    return <div className="flex items-center  rounded-full px-4 py-2">
+    return <div className="flex items-center  rounded-full px-4 py-2 invisible md:visible ">
     <Search size={30}/>
 
     <input
