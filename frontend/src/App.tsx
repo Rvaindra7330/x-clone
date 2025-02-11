@@ -7,12 +7,14 @@ import { Post } from './pages/Post'
 import { Home } from './pages/Home'
 import { Errorhandle } from './pages/Errorhandle'
 import { Create } from './pages/Create'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   
 
   return (
     <>
+    <ToastContainer ></ToastContainer>
     <BrowserRouter>
     <Routes>
       <Route path='/signup' element={<Signup/>}></Route>

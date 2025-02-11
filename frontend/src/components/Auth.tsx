@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom"
 import logo from '../assets/logo.jpg'
 import { useState } from "react"
 import { SignupInput } from "@rdevs/medium-common"
-import axios, { HttpStatusCode } from "axios"
+import axios from "axios"
 import { BACKEND_URL } from "../pages/config"
+import { toast } from "react-toastify"
+
 
 
 export const Auth=({type}:{type:"signup"|"signin"})=>{
@@ -29,11 +31,20 @@ export const Auth=({type}:{type:"signup"|"signin"})=>{
          const userInfo= await response.data
          console.log(response.data)
          localStorage.setItem("token",JSON.stringify(userInfo.jwt))
-         localStorage.setItem("username",userInfo.name)
-         navigate('/home')
+         localStorage.setItem("username",userInfo.name);
+        toast.success(
+            type==="signup"?"Signedup successfully":"login successful",
+            {
+                className: 'bg-white-500  w-80 text-gray-800 font-serif text-sm p-4 rounded-lg',
+              }
+        )
+         setTimeout(() => {
+            navigate('/home')
+         }, 2000);
+         
     }
     catch(e:any){
-        console.log(e.status)
+        
         navigate('/error',{state:{
             HttpStatusCode:e.status
         }})
