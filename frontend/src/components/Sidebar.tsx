@@ -1,8 +1,7 @@
 import { Button } from "./Button"
 import tyler from '../assets/tyler.jpg'
 import logo from '../assets/logo.jpg'
-import { Home, Search,Bell, Mail,UsersRound,UserRound,CircleEllipsis } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Home, Search,Bell, Mail,UsersRound,UserRound,CircleEllipsis, Plus } from "lucide-react";
 import { useState } from "react";
 import { Create } from "../pages/Create";
 export const SideBar=()=>{
@@ -55,15 +54,18 @@ return <div className="pl-10 pt-2 bg-black">
         </Button>
     </div>
     <div>
-    <button  onClick={() => setIsOpen(true)}className="flex justify-center   px-20 py-3 w-60 h-15 rounded-full bg-blue-400 hover:bg-sky-700 text-white text-xl"
+    <button  onClick={() => setIsOpen(true)}className="flex justify-center invisible lg:visible   px-20 py-3 w-60 h-15 rounded-full bg-blue-400 hover:bg-sky-700 text-white text-xl"
         >Post</button>
+       <Button label=""
+       icon={ <Plus  size={30} className="visible md:invisible" onClick={() => setIsOpen(true)}/>
+      }></Button>
        <Create isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
     <div>
         <button className="flex justify-between pt-10">
              <img className="rounded-full h-12 w-12 " src={tyler} />
-             <span className="text-lg text-white pl-2">{localStorage.getItem("username")}
-                <div className="text-base text-gray-500">@{localStorage.getItem("username")?.split(" ").join("").toLowerCase()}</div>
+             <span className="text-lg text-white pl-2 invisible md:visible">{localStorage.getItem("username")}
+                <div className="text-base text-gray-500 invisible md:visible">@{localStorage.getItem("username")?.split(" ").join("").toLowerCase()}</div>
              </span>
         </button>
     </div>

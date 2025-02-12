@@ -10,10 +10,10 @@ export const Home=()=>{
       
     </div>
     <div className="col-span-9 ml-1/4  h-screen  divide-x divide-slate-800  flex flex-row">
-    <div className="w-2/3 p-4">
+    <div className=" w-full lg:w-2/3 p-4">
     <Posts></Posts>
     </div>
-    <div className="w-1/3 p-4">
+    <div className="w-1/3 p-4 invisible lg:visible">
       <SearchBar></SearchBar>
       
     </div>
