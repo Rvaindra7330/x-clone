@@ -2,6 +2,8 @@ import { Bookmark, Heart, MessageCircle, Repeat2, Upload } from 'lucide-react';
 import tyler from '../assets/tyler.jpg'
 import {  Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
+import { BACKEND_URL } from '../pages/config';
 interface Postdetails{
     name:string;
     id:Number,
@@ -11,12 +13,11 @@ interface Postdetails{
 }
 export const Viewpost=({name,id,title,likeCount}:Postdetails)=>{
     const [fillcolor,setFillcolor]=useState('text-gray-500')
-    function handleLikeCount(){
-       
-      setFillcolor('text-red')
+    async function handleLikeCount(){
+      setFillcolor('text-pink')
+      await axios.post(`${BACKEND_URL}/post/:id/liked`,)
     }
-    return <Link to={`/post/${id}`}>
-     <div>
+    return <div>
         <div className="grid grid-cols-12 p-3  ">
             <div className="col-span-1 pt-1">
                 <img className="rounded-full h-10 w-10" src={tyler}/>
@@ -46,8 +47,7 @@ export const Viewpost=({name,id,title,likeCount}:Postdetails)=>{
 </div>
         <div className="flex justify-between">
             <span><Heart size={25} className={`${fillcolor}`}
-             onClick={(e)=>{
-                e.stopPropagation();
+             onClick={()=>{
                 handleLikeCount();
             }}/></span>
 <span className="pl-1 text-slate-500">{likeCount}</span>
@@ -72,5 +72,5 @@ export const Viewpost=({name,id,title,likeCount}:Postdetails)=>{
 </div>
         </div>
     </div>
-    </Link>
+    
 }

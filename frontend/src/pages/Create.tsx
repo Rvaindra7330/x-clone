@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BACKEND_URL } from "./config";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Create=({ isOpen, setIsOpen }:any)=>{
  
@@ -12,12 +12,12 @@ export const Create=({ isOpen, setIsOpen }:any)=>{
       const token=localStorage.getItem('token')
       const parsedToken=JSON.parse(token || "")
        const sendPost=async()=>{
-          const res=await axios.post(`${BACKEND_URL}/post`,post,{
+          await axios.post(`${BACKEND_URL}/post`,post,{
           headers:{
             Authorization:parsedToken
           }
         })
-        console.log(res.data)
+        
         setIsOpen(false)
       }
       
