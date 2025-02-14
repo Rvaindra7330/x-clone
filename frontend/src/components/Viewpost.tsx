@@ -11,11 +11,11 @@ interface Postdetails{
     likeCount:number
    
 }
-export const Viewpost=({name,id,title,likeCount}:Postdetails)=>{
+export const Viewpost=({name,title,likeCount}:Postdetails)=>{
     const [fillcolor,setFillcolor]=useState('text-gray-500')
     async function handleLikeCount(){
       setFillcolor('text-pink')
-      await axios.post(`${BACKEND_URL}/post/:id/liked`,)
+      
     }
     return <div>
         <div className="grid grid-cols-12 p-3  ">
